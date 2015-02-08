@@ -80,6 +80,38 @@ binaryTreeMethods.depthFirstLog = function(callback){  //note: check argument
   return answer;
 }
 
+binaryTreeMethods.breadthFirstSearch = function(target){
+  var queue = [];
+  var answer = false;
+  var next = null;
+  var answerArr = [];
+
+  var breadthFirstRecursive = function(node){
+    //check if the node.value === target
+      answerArr.push(node.value);
+      console.log('This is the node.value: ', node.value)
+    if(node.value === target){
+      answer = true;
+    };
+
+    if(node.left !== null){
+      queue.push(node.left);
+    };
+
+    if(node.right !== null){
+      queue.push(node.right);
+    };
+
+    if(queue.length !== 0){
+        next = queue.shift();
+        breadthFirstRecursive(next);
+    };
+  };
+
+  breadthFirstRecursive(this);
+  console.log(answerArr)
+  return answer;
+}
 
 
 

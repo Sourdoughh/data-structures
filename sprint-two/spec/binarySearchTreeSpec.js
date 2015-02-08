@@ -37,4 +37,16 @@ describe('binarySearchTree', function() {
     console.log(array);
     expect(array).to.eql([5,2,3]);
   });
+
+  it('breadthFirstSearch', function(){
+    binarySearchTree.insert(1);
+    binarySearchTree.insert(2);
+    binarySearchTree.insert(3);
+    binarySearchTree.insert(4);
+    binarySearchTree.insert(6);
+    binarySearchTree.insert(7);
+    binarySearchTree.insert(8);
+    expect(binarySearchTree.breadthFirstSearch(3)).to.equal(true);
+    expect(binarySearchTree.breadthFirstSearch(9)).to.equal(false);
+  });
 });
